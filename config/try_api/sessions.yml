@@ -1,0 +1,117 @@
+title: 'Sessions'
+methods:
+  -
+    title: 'Login'
+    path: '/login'
+    method: 'post'
+    parameters:
+      -
+        name: 'email'
+        type: 'string'
+      -
+        name: 'password'
+        type: 'string'
+        description: 'user password'
+      -
+        name: 'device_type'
+        type: 'string'
+        description: 'ios|android'
+      -
+        name: 'push_token'
+        type: 'string'
+    example_responses:
+      -
+        code: 200
+        response: >
+          {
+            "session_token": "881daf010691cf8ef84eca48659a69ec0707b55467101285dc90917290858f4a",
+            "user": {
+              "id": 3,
+              "email": "train1@mail.ua",
+              "first_name": "Jack",
+              "last_name": "Power",
+              "gender": "male",
+            }
+          }
+        type: 'json'
+      -
+        code: 422
+        response: >
+          {
+            "errors": [
+              "Wrong login/password combination."
+            ]
+          }
+        type: 'json'
+  -
+    title: 'Logout'
+    path: '/logout'
+    method: 'delete'
+    headers:
+      -
+        name: 'Session-Token'
+    example_responses:
+      -
+        code: 204
+        response: >
+          No content
+        type: 'json'
+      -
+        code: 401
+        response: var:access_denied_error
+        type: 'json'
+  -
+    title: 'Facebook'
+    description: 'login & signup'
+    path: '/login/facebook'
+    method: 'post'
+    parameters:
+      -
+        name: 'access_token'
+        type: 'string'
+        description: 'Facebook access token'
+      -
+        name: 'device_type'
+        type: 'string'
+        description: 'ios|android'
+      -
+        name: 'push_token'
+        type: 'string'
+
+    example_responses:
+      -
+        code: 200
+        response: >
+          {
+            "session_token": "126c9376bf6f8f1f94ea42ff8843af8eac6128ad3115e86b64f2646b2133bf6e",
+            "user": {
+              "id": 24,
+              "email": "trainer@gmail.com",
+              "first_name": null,
+              "last_name": null,
+              "gender": null,
+              "role": "trainer",
+              "avatar": "http://localhost:3000/system/users/24/avatars/original/follow_logo.png?1493044539",
+              "qb_session_token": "93187c0f3e6857ad44903542e7c73c7e5100c7b0",
+              "qb_login": "trainer@gmail.com_trainer_1493044540",
+              "qb_password": "e35066995f7a2d2a9ee64df994fd9c06223d6689",
+              "qb_user_id": 26798722,
+              "specialities": [],
+              "notifications_enabled": null,
+              "registration_step": 0,
+              "address": "asda",
+              "post_code": "adsd",
+              "latitude": 1231,
+              "longitude": 12312,
+              "location_radius": 23132
+            }
+          }
+        type: 'json'
+      -
+        code: 422
+        response: >
+          {
+            "errors": [
+              "Invalid facebook access token"
+            ]
+          }

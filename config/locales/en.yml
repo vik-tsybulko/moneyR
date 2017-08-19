@@ -1,0 +1,109 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  hello: "Hello world"
+  languages:
+    english: 'English'
+    ukrainian: 'Ukrainian'
+
+  profile:
+    edit_profile: 'Edit profile'
+    labels:
+      login: 'Login'
+      password: 'Password'
+      password_confirmation: 'Password Confirmation'
+      leave_blank: "Leave blank if you don't want to change it"
+      current_password: 'Current Password'
+    messages:
+      wrong_current_password: 'Wrong current password.'
+      profile_updated: 'Profile successfully updated.'
+
+  validations:
+    cant_be_blank: "Can't be blank."
+
+  headers:
+    activities: 'Activities'
+
+  datetime:
+    ago: 'ago'
+    at: 'at'
+  validations:
+    cant_be_blank: "Can't be blank."
+
+  actions:
+    submit: "Submit"
+    confirm: "Confirm"
+    cancel: "Cancel"
+    edit: 'Edit'
+    delete: 'Delete'
+    view: 'View'
+
+  admin:
+      new: "New Admin"
+      edit: "Edit Admin"
+      fields:
+      email: "Email"
+      messages:
+        success_upsert: 'Admin successfully saved.'
+
+  athlet:
+      new: "New Athlet"
+      edit: "Edit Athlet"
+      fields:
+      email: "Email"
+      messages:
+        success_upsert: 'Athlet successfully saved.'
+
+  activity:
+    new: "New Activity"
+    edit: "Edit Activity"
+    fields:
+      name: "Name"
+      description: "Description"
+      distance: "Distance"
+      moving_time: "Moving time"
+      elapsed_time: "Elapsed time"
+      total_elevation_gain: "Total elevation gain"
+      elev_high: "Elev high"
+      elev_low: "Elev low"
+      type: "Type"
+      start_date: "Start date"
+      start_latitude: "Start latitude"
+      start_longitude: "Start longitude"
+      end_latitude: "End latitude"
+      end_longitude: "End longitude"
+      photos: "Photos"
+      user: "User"
+      created_at: "Created at"
+      updated_at: "Updated at"
+    messages:
+      success_upsert: 'Activity successfully saved.'

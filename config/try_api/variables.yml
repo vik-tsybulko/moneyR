@@ -1,0 +1,16 @@
+variables:
+  access_denied_error: >
+    {
+      "errors": ["Access Denied !"]
+    }
+  profile: >
+    {
+      "user": {
+        "id": 3,
+        "email": "athlet2@gmail.com",
+        "first_name": "Michael",
+        "last_name": "Skubenych",
+        "role": "athlet",
+        "avatar": "/system/users/3/avatars/original/Spectacle.r25282.png?1503144516"
+      }
+    }

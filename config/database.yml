@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  pool: 25
+  timeout: 10000
+  username: postgres
+  password: postgres
+  host: localhost
+
+test:
+  <<: *default
+  database: money_db_test
+
+production:
+  <<: *default
+  database: money_db_prod
+
+development:
+  <<: *default
+  database: money_db_dev

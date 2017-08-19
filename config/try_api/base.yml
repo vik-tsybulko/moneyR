@@ -1,0 +1,14 @@
+name: 'URHQ'
+host: 'http://localhost'
+port: 3000
+api_prefix: 'api/v1'
+
+include!: variables
+
+menu_items:
+  -
+    include!: sessions
+  -
+    include!: users
+  -
+    include!: passwords

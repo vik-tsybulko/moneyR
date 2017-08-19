@@ -1,0 +1,181 @@
+title: 'Users'
+methods:
+  -
+    title: 'Signup'
+    path: '/signup'
+    method: 'post'
+    parameters:
+      -
+        name: 'email'
+        type: 'string'
+      -
+        name: 'password'
+        type: 'string'
+      -
+        name: 'first_name'
+        type: 'string'
+      -
+        name: 'last_name'
+        type: 'string'
+      -
+        name: 'avatar'
+        type: 'image'
+      -
+        name: 'device_type'
+        type: 'string'
+        description: 'ios|android'
+      -
+        name: 'push_token'
+        type: 'string'
+    example_responses:
+      -
+        code: 200
+        response: >
+          {
+            "message": "Registration successful."
+          }
+        type: 'json'
+      -
+        code: 200
+        response: >
+         {
+           "session_token": "b22bf18335475ce11a4b6ec87075712770fe93a385af8f81cc4bf612da2c98bb",
+           "user": {
+             "id": 3,
+             "email": "athlet2@gmail.com",
+             "first_name": "Michael",
+             "last_name": "Skubenych",
+             "role": "athlet",
+             "avatar": "/system/users/3/avatars/original/Spectacle.r25282.png?1503144516"
+           },
+           "message": "Registration successful."
+         }
+        type: 'json'
+      -
+        code: 422
+        response: >
+          {
+            "errors": [
+              "Email This email address is already registered."
+            ]
+          }
+        type: 'json'
+  -
+    title: 'Profile'
+    path: '/profile'
+    method: 'get'
+
+    parameters:
+    headers:
+      -
+        name: 'Session-Token'
+    example_responses:
+      -
+        code: 200
+        response: var:profile
+        type: 'json'
+      -
+        code: 401
+        response: >
+          {
+            "error": "Access Denied !"
+          }
+        type: 'json'
+  -
+    title: 'Update profile'
+    path: '/users'
+    method: 'put'
+    headers:
+      -
+        name: 'Session-Token'
+    parameters:
+      -
+        name: email
+        type: string
+      -
+        name: first_name
+        type: string
+      -
+        name: last_name
+        type: string
+      -
+        name: avatar
+        type: image
+      -
+        name: password
+        type: string
+      -
+        name: current_password
+        type: string
+        description: 'Needs if you want to change password.'
+
+    example_responses:
+      -
+        code: 200
+        response: var:profile
+        type: 'json'
+      -
+        code: 401
+        response: >
+          {
+            "error": "Access Denied !"
+          }
+        type: 'json'
+      -
+        code: 401
+        response: >
+          {
+            "message": "Wrong current password"
+          }
+        type: 'json'
+      -
+        code: 422
+        response: >
+          {
+            "errors": [
+              "Password confirmation doesn't match Password"
+            ]
+          }
+        type: 'json'
+  -
+    title: 'Resend verification'
+    path: '/email_verification/resend'
+    method: 'post'
+    parameters:
+      -
+        name: email
+        type: string
+    example_responses:
+      -
+        code: 200
+        response: >
+          {
+            "message": [
+              "Email verification instructions sent."
+            ]
+          }
+      -
+        code: 422
+        response: >
+          {
+            "errors": [
+              "Can't find unconfirmed user by given email."
+            ]
+          }
+  -
+    title: 'Verify email'
+    path: '/email_verification'
+    method: 'post'
+    parameters:
+      -
+        name: code
+        type: string
+    example_responses:
+      -
+        code: 200
+        response: >
+          {
+            "message": [
+              "User verified."
+            ]
+          }
